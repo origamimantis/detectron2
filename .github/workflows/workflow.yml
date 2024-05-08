@@ -108,4 +108,4 @@ jobs:
       - name: Cache dependencies
         uses: actions/cache@v2
       - name: install linux deps
-        uses: actions/test-action
+        uses: ./actions/test-action
