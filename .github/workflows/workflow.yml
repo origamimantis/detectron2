@@ -85,7 +85,8 @@ jobs:
         run: python -m pytest -n 4 --durations=15 -sv tests/
 
   newaction:
-    runs-on: 4-core-ubuntu-gpu-t4
+    runs-on: macos-latest
+    #runs-on: 4-core-ubuntu-gpu-t4
     # run on PRs, or commits to facebookresearch (not internal)
     #if: ${{ github.repository_owner == 'facebookresearch' || github.event_name == 'pull_request' }}
     strategy:
