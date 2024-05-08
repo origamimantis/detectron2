@@ -111,6 +111,11 @@ jobs:
           python-version: 3.8
       - name: Cache dependencies
         uses: actions/cache@v2
+        with:
+          path: |
+            ${{ env.pythonLocation }}/lib/python3.8/site-packages
+            ~/.torch
+          key: ${{ runner.os }}-torch${{ matrix.torch }}-${{ hashFiles('setup.py') }}-20220119
       - name: install linux deps
         uses: ./actions/test-action
         with:
