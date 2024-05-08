@@ -14,7 +14,7 @@ inputs:
 runs:
   using: composite
   steps:
-      name: Install Dependencies
+      #name: Install Dependencies
       run: |
         # disable crash coredump, so unittests fail fast
         sudo systemctl stop apport.service
