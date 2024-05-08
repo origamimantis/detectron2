@@ -101,6 +101,7 @@ jobs:
 
     env:
       PYTORCH_INDEX: "https://download.pytorch.org/whl/torch_stable.html"
+      DETECTRON2_DATASETS: ~/.torch/datasets
     steps:
       - name: Checkout
         uses: actions/checkout@v2
