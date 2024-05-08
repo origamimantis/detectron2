@@ -98,6 +98,8 @@ jobs:
           - torch: "2.2.2"
             torchvision: "0.17.2"
 
+    env:
+      PYTORCH_INDEX: "https://download.pytorch.org/whl/torch_stable.html"
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -109,3 +111,7 @@ jobs:
         uses: actions/cache@v2
       - name: install linux deps
         uses: ./actions/test-action
+        with:
+          torch-version: ${{matrix.torch}}
+          torchvision-version: ${{matrix.torchvision}}
+          pytorch-index: $PYTORCH_INDEX
