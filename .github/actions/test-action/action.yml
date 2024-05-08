@@ -1,11 +1,11 @@
 name: "Install Linux Dependencies"
 description: "Install linux dependencies"
 inputs:
-  torch-version:
-    description: torch version to install, version number or "master"
-  torchvision-version:
-    description: torch vision version to install
-  pytorch-index:
+  torch_version:
+    description: torch version to install
+  torchvision_version:
+    description: torch vision version to install, version number or "master"
+  pytorch_index:
     description: where to install torch from
     required: false
     default: "https://download.pytorch.org/whl/torch_stable.html"
@@ -26,11 +26,11 @@ runs:
       # Don't use pytest-xdist: cuda tests are unstable under multi-process workers.
       # Don't use opencv 4.7.0.68: https://github.com/opencv/opencv-python/issues/765
       pip install --progress-bar off ninja opencv-python-headless!=4.7.0.68 pytest tensorboard pycocotools onnx
-      pip install --progress-bar off torch==$INPUT_PYTORCH-VERSION -f $INPUT_PYTORCH-INDEX
-      if [[ "$INPUT_TORCHVISION-VERSION" == "master" ]]; then
+      pip install --progress-bar off torch==$INPUT_PYTORCH_VERSION -f $INPUT_PYTORCH_INDEX
+      if [[ "$INPUT_TORCHVISION_VERSION" == "master" ]]; then
         pip install git+https://github.com/pytorch/vision.git
       else
-        pip install --progress-bar off torchvision==$INPUT_TORCHVISION-VERSION -f $INPUT_PYTORCH-INDEX
+        pip install --progress-bar off torchvision==$INPUT_TORCHVISION_VERSION -f $INPUT_PYTORCH_INDEX
       fi
 
       python -c 'import torch; print("CUDA:", torch.cuda.is_available())'
