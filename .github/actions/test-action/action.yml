@@ -12,9 +12,10 @@ inputs:
     # use test wheels index to have access to RC wheels
     # https://download.pytorch.org/whl/test/torch_test.html
 runs:
+  using: composite
   steps:
       name: Install Dependencies
-      command: |
+      run: |
         # disable crash coredump, so unittests fail fast
         sudo systemctl stop apport.service
         # install from github to get latest; install iopath first since fvcore depends on it
