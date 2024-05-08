@@ -83,3 +83,29 @@ jobs:
           ./datasets/prepare_for_tests.sh
       - name: Run unittests
         run: python -m pytest -n 4 --durations=15 -sv tests/
+
+  newaction:
+    runs-on: 4-core-ubuntu-gpu-t4
+    # run on PRs, or commits to facebookresearch (not internal)
+    #if: ${{ github.repository_owner == 'facebookresearch' || github.event_name == 'pull_request' }}
+    strategy:
+      fail-fast: false
+      matrix:
+        torch: ["1.13.1", "2.2.2"]
+        include:
+          - torch: "1.13.1"
+            torchvision: "0.14.1"
+          - torch: "2.2.2"
+            torchvision: "0.17.2"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Cache dependencies
+        uses: actions/cache@v2
+      - name: install linux deps
+        uses: actions/test-action
