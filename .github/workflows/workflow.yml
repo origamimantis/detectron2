@@ -117,7 +117,8 @@ jobs:
             ~/.torch
           key: ${{ runner.os }}-torch${{ matrix.torch }}-${{ hashFiles('setup.py') }}-20220119
       - name: install linux deps
-        uses: origamimantis/detectron2/.github/actions/test-action
+        # https://github.com/orgs/community/discussions/26245#discussioncomment-3250943
+        uses: newaction: ./.github/actions/test-action@master
         with:
           torch-version: ${{matrix.torch}}
           torchvision-version: ${{matrix.torchvision}}
