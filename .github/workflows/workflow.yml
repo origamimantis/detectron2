@@ -118,7 +118,7 @@ jobs:
           key: ${{ runner.os }}-torch${{ matrix.torch }}-${{ hashFiles('setup.py') }}-20220119
       - name: install linux deps
         # https://github.com/orgs/community/discussions/26245#discussioncomment-3250943
-        uses: newaction: ./.github/actions/test-action
+        uses: ./.github/actions/test-action
         with:
           torch-version: ${{matrix.torch}}
           torchvision-version: ${{matrix.torchvision}}
