@@ -120,6 +120,6 @@ jobs:
         # https://github.com/orgs/community/discussions/26245#discussioncomment-3250943
         uses: ./.github/actions/test-action
         with:
-          torch_version: ${{matrix.torch}}
-          torchvision_version: ${{matrix.torchvision}}
-          pytorch_index: $PYTORCH_INDEX
+          torch-version: ${{matrix.torch}}
+          torchvision-version: ${{matrix.torchvision}}
+          pytorch-index: $PYTORCH_INDEX
