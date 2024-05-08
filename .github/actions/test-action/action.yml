@@ -14,6 +14,14 @@ inputs:
 runs:
   using: composite
   steps:
+  - name: Bruh.
+    shell: bash
+    run: |
+      echo 123
+      echo $INPUT_TORCH_VERSION
+      echo $INPUT_TORCHVISION_VERSION
+      echo $INPUT_PYTORCH_INDEX
+      echo 456
   - name: Install Dependencies
     shell: bash
     run: |
