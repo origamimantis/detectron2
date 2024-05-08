@@ -26,6 +26,7 @@ runs:
       # Don't use pytest-xdist: cuda tests are unstable under multi-process workers.
       # Don't use opencv 4.7.0.68: https://github.com/opencv/opencv-python/issues/765
       pip install --progress-bar off ninja opencv-python-headless!=4.7.0.68 pytest tensorboard pycocotools onnx
+      echo =================================AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
       echo $INPUT_PYTORCH_INDEX
       pip install --progress-bar off torch==$INPUT_PYTORCH_VERSION -f $INPUT_PYTORCH_INDEX
       if [[ "$INPUT_TORCHVISION_VERSION" == "master" ]]; then
