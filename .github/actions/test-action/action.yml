@@ -18,7 +18,7 @@ runs:
     shell: bash
     run: |
       echo 123
-      echo $INPUT_TORCH_VERSION
+      echo ${{intputs.torch_version}}
       echo $INPUT_TORCHVISION_VERSION
       echo $INPUT_PYTORCH_INDEX
       echo 456
