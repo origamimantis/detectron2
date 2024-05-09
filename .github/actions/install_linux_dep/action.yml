@@ -35,4 +35,4 @@ runs:
       python -c 'import torch; print("CUDA:", torch.cuda.is_available())'
       gcc --version
       echo $PATH
-      echo ${{pythonLocation}}
+      echo $pythonLocation
