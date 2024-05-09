@@ -116,9 +116,15 @@ jobs:
             ${{ env.pythonLocation }}/lib/python3.8/site-packages
             ~/.torch
           key: ${{ runner.os }}-torch${{ matrix.torch }}-${{ hashFiles('setup.py') }}-20220119
-      - name: install linux deps
-        # https://github.com/orgs/community/discussions/26245#discussioncomment-3250943
-        uses: ./.github/actions/test-action
+      - name: setup_venv
+        uses: ./.github/actions/setup_venv
+        with:
+          torch-version: ${{matrix.torch}}
+          torchvision-version: ${{matrix.torchvision}}
+          pytorch-index: $PYTORCH_INDEX
+
+      - name: install_linux_dep
+        uses: ./.github/actions/install_linux_dep
         with:
           torch-version: ${{matrix.torch}}
           torchvision-version: ${{matrix.torchvision}}
