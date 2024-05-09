@@ -106,7 +106,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - run: echo pwd: $(pwd)
+      - run: echo "pwd: $(pwd)"
 
       - name: Cache dependencies
         uses: actions/cache/restore@v2
