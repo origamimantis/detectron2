@@ -20,6 +20,7 @@ runs:
       echo $VIRTUAL_ENV
       which python
       which pip
+      echo ${{env.pythonLocation}}
       # disable crash coredump, so unittests fail fast
       sudo systemctl stop apport.service
       # install from github to get latest; install iopath first since fvcore depends on it
