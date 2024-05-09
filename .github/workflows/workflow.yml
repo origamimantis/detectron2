@@ -101,18 +101,20 @@ jobs:
     env:
       PYTORCH_INDEX: "https://download.pytorch.org/whl/torch_stable.html"
       DETECTRON2_DATASETS: ~/.torch/datasets
-    working-directory: ~/detectron2
+      CACHEKEY: - cache-{{ arch }}-<< parameters.pytorch_version >>-{{ .Branch }}-20210827
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - run: echo pwd: $(pwd)
+
       - name: Cache dependencies
-        uses: actions/cache@v2
+        uses: actions/cache/restore@v2
         with:
           path: |
             ${{ env.pythonLocation }}/lib/python3.8/site-packages
             ~/.torch
-          key: ${{ runner.os }}-torch${{ matrix.torch }}-${{ hashFiles('setup.py') }}-20210827
+          key: $CACHEKEY
 
       - name: Set up Python 3.8
         uses: actions/setup-python@v2
