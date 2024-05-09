@@ -1,6 +1,4 @@
 name: "Setup Virtual Env"
-env:
-  BASH_ENV: aa
 runs:
   using: composite
   steps:
@@ -9,7 +7,12 @@ runs:
     #working-directory: $HOME
     run: |
       python -m venv ~/venv
-      echo ". ~/venv/bin/activate" >> $BASH_ENV
+      ls ~
+      realpath ~
+      # BASH_ENV does not exist outdife of circleci.
+      # the goal is to source the venv in future jobs,
+      # so add it as a script to /etc/profile.d
+      echo ". ~/venv/bin/activate" >> /etc/profile.d/detectron2_activate_venv.sh
       . ~/venv/bin/activate
       python --version
       which python
