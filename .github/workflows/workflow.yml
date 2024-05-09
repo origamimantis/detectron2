@@ -101,13 +101,16 @@ jobs:
     env:
       PYTORCH_INDEX: "https://download.pytorch.org/whl/torch_stable.html"
       DETECTRON2_DATASETS: ~/.torch/datasets
-      CACHEKEY: ${{ runner.os }}-torch${{ matrix.torch }}-${{ hashFiles('setup.py') }}-20210827
+      CACHEKEY:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
       - run: |
-          echo "pwd: $(pwd)"
+          CACHEKEY = ${{ runner.os }}-torch${{ matrix.torch }}-${{ hashFiles('setup.py') }}-20210827
+
+      - run: |
+          echo $CACHEKEY
 
       - name: Cache dependencies
         uses: actions/cache/restore@v2
