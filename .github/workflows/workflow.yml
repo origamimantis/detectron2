@@ -116,12 +116,6 @@ jobs:
             ${{ env.pythonLocation }}/lib/python3.8/site-packages
             ~/.torch
           key: ${{ runner.os }}-torch${{ matrix.torch }}-${{ hashFiles('setup.py') }}-20220119
-      - name: setup_venv
-        uses: ./.github/actions/setup_venv
-        with:
-          torch-version: ${{matrix.torch}}
-          torchvision-version: ${{matrix.torchvision}}
-          pytorch-index: $PYTORCH_INDEX
 
       - name: install_linux_dep
         uses: ./.github/actions/install_linux_dep
@@ -129,3 +123,5 @@ jobs:
           torch-version: ${{matrix.torch}}
           torchvision-version: ${{matrix.torchvision}}
           pytorch-index: $PYTORCH_INDEX
+
+      - uses: ./.github/actions/install_detectron2
