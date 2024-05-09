@@ -4,7 +4,7 @@ runs:
   steps:
   - name: Install Dependencies
     shell: bash
-    working-directory: $HOME
+    #working-directory: $HOME
     run: |
       python -m venv ~/venv
       echo ". ~/venv/bin/activate" >> $BASH_ENV
