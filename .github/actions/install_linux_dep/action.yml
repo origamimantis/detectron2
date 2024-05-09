@@ -32,8 +32,6 @@ runs:
         pip install --progress-bar off torchvision==${{inputs.torchvision-version}} -f ${{inputs.pytorch-index}}
       fi
 
+      echo python install path: $pythonLocation
       python -c 'import torch; print("CUDA:", torch.cuda.is_available())'
       gcc --version
-      echo $PATH
-      echo $pythonLocation
-      ls /opt/hostedtoolcache/Python/3.8.18/x64/bin
