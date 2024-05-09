@@ -5,4 +5,4 @@ runs:
   - name: Run Unit Tests
     shell: bash
     run: |
-      pytest -sv --durations=15 tests  # parallel causes some random failures
+      python -m pytest -sv --durations=15 tests  # parallel causes some random failures
