@@ -107,7 +107,7 @@ jobs:
         uses: actions/checkout@v2
 
       - run: |
-          CACHEKEY=${{ runner.os }}-torch${{ matrix.torch }}-${{ hashFiles('setup.py') }}-20210827
+          echo "CACHEKEY=${{ runner.os }}-torch${{ matrix.torch }}-${{ hashFiles('setup.py') }}-20210827" >> "$GITHUB_ENV"
 
       - run: |
           echo $CACHEKEY
