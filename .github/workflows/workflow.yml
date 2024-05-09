@@ -117,11 +117,15 @@ jobs:
             ~/.torch
           key: ${{ runner.os }}-torch${{ matrix.torch }}-${{ hashFiles('setup.py') }}-20220119
 
-      - name: install_linux_dep
+      - name: Install Dependencies
         uses: ./.github/actions/install_linux_dep
         with:
           torch-version: ${{matrix.torch}}
           torchvision-version: ${{matrix.torchvision}}
           pytorch-index: $PYTORCH_INDEX
 
-      - uses: ./.github/actions/install_detectron2
+      - name: Run Unit Tests
+        uses: ./.github/actions/install_detectron2
+
+      - name: Run Tests After Uninstalling
+        uses: ./.github/actions/install_detectron2
