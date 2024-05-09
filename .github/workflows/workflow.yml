@@ -110,6 +110,12 @@ jobs:
         run: |
           echo "CACHEKEY=${{ runner.os }}-torch${{ matrix.torch }}-${{ hashFiles('setup.py') }}-20210827" >> "$GITHUB_ENV"
 
+
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
       - name: Cache dependencies
         uses: actions/cache@v2
         id: load-cache
@@ -118,11 +124,6 @@ jobs:
             ${{ env.pythonLocation }}/lib/python3.8/site-packages
             ~/.torch
           key: ${{env.CACHEKEY}}
-
-      - name: Set up Python 3.8
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.8
 
       - name: Install Dependencies
         uses: ./.github/actions/install_linux_dep
