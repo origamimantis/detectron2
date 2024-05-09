@@ -101,7 +101,7 @@ jobs:
     env:
       PYTORCH_INDEX: "https://download.pytorch.org/whl/torch_stable.html"
       DETECTRON2_DATASETS: ~/.torch/datasets
-      CACHEKEY: - cache-{{ arch }}-<< parameters.pytorch_version >>-{{ .Branch }}-20210827
+      CACHEKEY: ${{ runner.os }}-torch${{ matrix.torch }}-${{ hashFiles('setup.py') }}-20210827
     steps:
       - name: Checkout
         uses: actions/checkout@v2
