@@ -12,8 +12,9 @@ runs:
       # BASH_ENV does not exist outdife of circleci.
       # the goal is to source the venv in future jobs,
       # so add it as a script to /etc/profile.d
-      echo "echo AAA; . ~/venv/bin/activate" > detectron2_activate_venv.sh
-      sudo mv detectron2_activate_venv.sh /etc/profile.d/
+      echo "echo AAA; . ~/venv/bin/activate" > $GITHUB_ENV
+      #echo "echo AAA; . ~/venv/bin/activate" > detectron2_activate_venv.sh
+      #sudo mv detectron2_activate_venv.sh /etc/profile.d/
       . ~/venv/bin/activate
       python --version
       which python
