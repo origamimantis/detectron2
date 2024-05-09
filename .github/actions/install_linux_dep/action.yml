@@ -18,6 +18,9 @@ runs:
     run: |
       # disable crash coredump, so unittests fail fast
       sudo systemctl stop apport.service
+
+      pip install -U pip
+
       # install from github to get latest; install iopath first since fvcore depends on it
       pip install --progress-bar off -U 'git+https://github.com/facebookresearch/iopath'
       pip install --progress-bar off -U 'git+https://github.com/facebookresearch/fvcore'
