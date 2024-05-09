@@ -123,9 +123,9 @@ jobs:
           torch-version: ${{matrix.torch}}
           torchvision-version: ${{matrix.torchvision}}
           pytorch-index: $PYTORCH_INDEX
-      - run: |
-          wget https://raw.githubusercontent.com/pytorch/pytorch/master/torch/utils/collect_env.py
-          python collect_env.py
+
+      - name: Install Detectron2
+        uses: ./.github/actions/install_detectron2
 
       - name: Run Unit Tests
         uses: ./.github/actions/run_unittests
