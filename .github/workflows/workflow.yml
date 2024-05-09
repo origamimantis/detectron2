@@ -123,7 +123,7 @@ jobs:
           torch-version: ${{matrix.torch}}
           torchvision-version: ${{matrix.torchvision}}
           pytorch-index: $PYTORCH_INDEX
-      - runs: |
+      - run: |
           wget https://raw.githubusercontent.com/pytorch/pytorch/master/torch/utils/collect_env.py
           python collect_env.py
 
