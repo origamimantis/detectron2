@@ -1,6 +1,6 @@
 name: "Setup Virtual Env"
 env:
-  BASH_ENV:
+  BASH_ENV: aa
 runs:
   using: composite
   steps:
@@ -9,7 +9,7 @@ runs:
     #working-directory: $HOME
     run: |
       python -m venv ~/venv
-      echo ". ~/venv/bin/activate" >> ${{BASH_ENV}}
+      echo ". ~/venv/bin/activate" >> $BASH_ENV
       . ~/venv/bin/activate
       python --version
       which python
