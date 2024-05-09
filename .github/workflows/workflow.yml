@@ -123,6 +123,10 @@ jobs:
           torch-version: ${{matrix.torch}}
           torchvision-version: ${{matrix.torchvision}}
           pytorch-index: $PYTORCH_INDEX
+      - uses: echo $PATH
+      - uses: |
+          wget https://raw.githubusercontent.com/pytorch/pytorch/master/torch/utils/collect_env.py
+          python collect_env.py
 
       - name: Run Unit Tests
         uses: ./.github/actions/run_unittests
