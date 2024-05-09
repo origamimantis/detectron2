@@ -125,7 +125,7 @@ jobs:
           pytorch-index: $PYTORCH_INDEX
 
       - name: Run Unit Tests
-        uses: ./.github/actions/install_detectron2
+        uses: ./.github/actions/run_unittests
 
       - name: Run Tests After Uninstalling
-        uses: ./.github/actions/install_detectron2
+        uses: ./.github/actions/uninstall_tests
