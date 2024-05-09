@@ -17,6 +17,7 @@ runs:
     shell: bash
     run: |
       echo $PATH
+      echo $VIRTUAL_ENV
       # disable crash coredump, so unittests fail fast
       sudo systemctl stop apport.service
       # install from github to get latest; install iopath first since fvcore depends on it

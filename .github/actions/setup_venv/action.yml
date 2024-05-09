@@ -14,6 +14,7 @@ runs:
       # so add it as a script to /etc/profile.d
       . ~/venv/bin/activate
       echo "PATH=$PATH" >> "$GITHUB_ENV"
+      echo "VIRTUAL_ENV=$VIRTUAL_ENV" >> "$GITHUB_ENV"
       #echo "echo AAA; . ~/venv/bin/activate" > detectron2_activate_venv.sh
       #sudo mv detectron2_activate_venv.sh /etc/profile.d/
       python --version
@@ -21,3 +22,4 @@ runs:
       which pip
       pip install --upgrade pip
       echo $PATH
+      echo $VIRTUAL_ENV
