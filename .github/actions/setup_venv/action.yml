@@ -1,4 +1,6 @@
 name: "Setup Virtual Env"
+env:
+  BASH_ENV:
 runs:
   using: composite
   steps:
