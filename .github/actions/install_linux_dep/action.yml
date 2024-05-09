@@ -36,3 +36,4 @@ runs:
       gcc --version
       echo $PATH
       echo $pythonLocation
+      ls /opt/hostedtoolcache/Python/3.8.18/x64/bin
