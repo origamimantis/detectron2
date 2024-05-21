@@ -85,7 +85,7 @@ jobs:
         run: python -m pytest -n 4 --durations=15 -sv tests/
 
   linux_gpu_tests:
-    runs-on: 4-core-ubuntu-gpu-t4
+    runs-on: ubuntu-latest
     # run on PRs, or commits to facebookresearch (not internal)
     strategy:
       fail-fast: false
