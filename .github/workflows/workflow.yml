@@ -98,7 +98,7 @@ jobs:
           - torch: "2.2.2"
             torchvision: "0.17.2"
     env:
-      PYTORCH_INDEX: "https://download.pytorch.org/whl/torch_stable.html"
+      PYTORCH_INDEX: "https://download.pytorch.org/whl/cu118"
       DETECTRON2_DATASETS: ~/.torch/datasets
     steps:
       - name: Checkout
