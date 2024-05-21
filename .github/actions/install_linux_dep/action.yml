@@ -18,6 +18,7 @@ runs:
     run: |
       # disable crash coredump, so unittests fail fast
       sudo systemctl stop apport.service
+      uname -r
 
       pip install -U pip
 
