@@ -87,7 +87,6 @@ jobs:
   linux_gpu_tests:
     runs-on: 4-core-ubuntu-gpu-t4
     # run on PRs, or commits to facebookresearch (not internal)
-    if: ${{ github.repository_owner == 'facebookresearch' || github.event_name == 'pull_request' }}
     strategy:
       fail-fast: false
       matrix:
