@@ -10,6 +10,9 @@ inputs:
     default: "https://download.pytorch.org/whl/torch_stable.html"
     # use test wheels index to have access to RC wheels
     # https://download.pytorch.org/whl/test/torch_test.html
+env:
+  DISTRO: "ubuntu2004"
+  ARCH: "x86_64"
 runs:
   using: composite
   steps:
