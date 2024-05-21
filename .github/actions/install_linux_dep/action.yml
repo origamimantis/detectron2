@@ -20,6 +20,14 @@ runs:
       sudo systemctl stop apport.service
       uname -r
 
+      # https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#network-repo-installation-for-ubuntu
+#      wget https://developer.download.nvidia.com/compute/cuda/repos/"$DISTRO"/"$ARCH"/cuda-keyring_1.1-1_all.deb
+ #     sudo dpkg -i cuda-keyring_1.1-1_all.deb
+
+      sudo apt-get update
+      sudo apt-get install cuda-toolkit
+      sudo apt-get install nvidia-gds
+
       pip install -U pip
 
       # install from github to get latest; install iopath first since fvcore depends on it
